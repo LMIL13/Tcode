@@ -1,0 +1,26 @@
+TABLE DE CODIFICATION - application hors ligne (iPhone, Android, ordinateur)
+
+CONTENU DU DOSSIER
+  index.html                 l'application (codes + notice + recherche)
+  sw.js, manifest.webmanifest, icones *.png   rendent l'application installable et utilisable sans reseau
+  table_de_code.html         copie de index.html, fichier unique (envoi par mail / Teams)
+
+PUBLICATION (une seule fois)
+  Deposer TOUT le contenu du dossier sur un hebergement web en HTTPS, par exemple :
+    - Azure Static Web Apps (Microsoft)
+    - GitHub Pages (GitHub appartient a Microsoft)
+  Le mode hors ligne exige une adresse https:// ; il ne fonctionne pas depuis un simple fichier local.
+
+INSTALLATION SUR LE TELEPHONE
+  1. Ouvrir l'adresse une premiere fois avec du reseau, attendre "Hors ligne : pret" en bas de page.
+  2. iPhone (Safari) : Partager > Sur l'ecran d'accueil.
+     Android (Chrome ou Edge) : menu > Installer l'application / Ajouter a l'ecran d'accueil.
+  3. Ensuite l'application s'ouvre sans reseau.
+
+MISE A JOUR
+  python build_app.py --xls table_terrain_2019.xls --docx Codification_COVADIS_2026.docx --out dist
+  (prerequis : python, pandoc, pip install xlrd beautifulsoup4 pillow ; fichiers build_app.py, template.html, sw.js)
+  Puis republier le dossier dist. Chaque telephone recupere la nouvelle version a la prochaine ouverture
+  avec du reseau et propose "Actualiser".
+  - Codes : modifier le .xls (memes colonnes, titres de familles en texte seul, codes en italique = "Nouveau").
+  - Notice : modifier le .docx (titres en styles Titre 1/2/3, numerotes comme aujourd'hui).
