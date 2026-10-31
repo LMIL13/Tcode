@@ -2,7 +2,7 @@
    - Les fichiers de l'application sont mis en cache à la première ouverture avec du réseau.
    - Ensuite l'application s'ouvre immédiatement depuis le cache (même sans réseau) ;
      en arrière-plan, si une nouvelle version est publiée, elle est téléchargée et l'utilisateur est invité à actualiser. */
-const V = "codif-2653988ec3";
+const V = "codif-851f18d672";
 const SCOPE = self.registration.scope;
 const INDEX = new URL("index.html", SCOPE).href;
 const CORE = ["index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-maskable-512.png", "apple-touch-icon.png"]
